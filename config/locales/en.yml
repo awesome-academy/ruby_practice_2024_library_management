@@ -37,3 +37,5 @@ en:
     login_fail: "Email hoặc mật khẩu không chính xác."
     logout_succed: "Đăng xuất thành công!"
     require_login: "Please log in."
+    author_notfound: "Author not found"
+    categories_notfound: "Category not found"

@@ -13,6 +13,14 @@
     <a class="navbar-brand" href="/">Library</a>
     <div class="collapse navbar-collapse">
       <div class="navbar_ul">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Categories', categories_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Authors', authors_path, class: 'nav-link' %>
+          </li>
+        </ul>
         <ul class="navbar-nav ml-auto">
           <% if logged_in? %>
             <li class="nav-item dropdown">

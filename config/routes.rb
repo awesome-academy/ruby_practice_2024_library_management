@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "authors/index"
+  get "authors/show"
+  get "categories/index"
+  get "categories/show"
+  get "books/show"
   get "users/show"
   get "sessions/new"
   get "sessions/create"
@@ -13,5 +18,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :users, only: [:show]
+  resources :users, only: %i(show)
+  resources :books, only: %i(show)
+  resources :categories, only: %i(index show)
+  resources :authors, only: %i(index show)
 end

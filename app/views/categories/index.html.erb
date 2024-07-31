@@ -9,7 +9,7 @@
 <ul>
   <% if @categories.present? %>
     <% @categories.each do |category| %>
-      <li><%= link_to category.name, category_path(category) %></li>
+      <li>- <%= link_to category.name, category_path(category) %></li>
     <% end %>
   <% else %>
     <li>No categories found</li>

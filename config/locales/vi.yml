@@ -9,3 +9,7 @@ vi:
     application_reqire: "Bạn cần đăng nhập để thực hiện hành động này."
     comment_add: "Bình luận đã được thêm!"
     comment_add_fail: "Không thể thêm bình luận."
+    request_borrow: "Yêu cầu mượn sách đã được gửi thành công!"
+    request_error: "Vui lòng điền đầy đủ thông tin."
+  helper:
+    session_flash_danger: "Email/mật khẩu không hợp lệ."

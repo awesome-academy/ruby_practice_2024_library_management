@@ -6,7 +6,7 @@ class BorrowRequest < ApplicationRecord
 
   after_initialize :set_defaults, if: :new_record?
 
-  enum status: { pending: 0, borrowing: 1, payed: 2, canceled: 3 }
+  enum status: {pending: 0, borrowing: 1, payed: 2, canceled: 3}
 
   private
 

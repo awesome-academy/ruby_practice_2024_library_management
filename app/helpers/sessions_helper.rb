@@ -24,7 +24,7 @@ module SessionsHelper
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = "Invalid email/password combination"
+      flash.now[:danger] = t("helper.session_flash_danger")
       render "new"
     end
   end

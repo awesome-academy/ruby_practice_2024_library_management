@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "comments/create"
   get "authors/index"
   get "authors/show"
   get "categories/index"
@@ -22,4 +23,7 @@ Rails.application.routes.draw do
   resources :books, only: %i(show)
   resources :categories, only: %i(index show)
   resources :authors, only: %i(index show)
+  resources :books do
+    resources :comments, only: %i(create)
+  end
 end

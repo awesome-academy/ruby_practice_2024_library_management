@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: t("controller.register_notice")
+      redirect_to login_path, notice: t("controller.register_notice")
     else
       render :new
     end

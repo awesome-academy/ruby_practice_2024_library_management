@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h2>Sign up</h2>
+  <h2 style="text-align: center;">Sign up</h2>
   <%= form_with(model: @user,url: registrations_path, local: true, class: 'registration-form') do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">

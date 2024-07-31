@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RubyPractice2024LibraryManagement</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Library</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body style="background-color: #e9e9e9 ;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Library</a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar_ul">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to 'Login',class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Signup', signup_path, class: 'nav-link' %>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <body>
+  <div class="container mt-4">
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

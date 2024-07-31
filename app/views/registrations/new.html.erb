@@ -1,0 +1,34 @@
+<div class="form-container">
+  <h2>Sign up</h2>
+  <%= form_with(model: @user,url: registrations_path, local: true, class: 'registration-form') do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li>- <%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign up", class: 'btn btn-primary'  %>
+    </div>
+  <% end %>
+</div>
+

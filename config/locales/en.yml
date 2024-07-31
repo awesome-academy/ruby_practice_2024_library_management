@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  controller:
+    register_notice: "Successfully signed up"

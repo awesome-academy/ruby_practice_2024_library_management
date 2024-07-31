@@ -11,5 +11,7 @@ vi:
     comment_add_fail: "Không thể thêm bình luận."
     request_borrow: "Yêu cầu mượn sách đã được gửi thành công!"
     request_error: "Vui lòng điền đầy đủ thông tin."
+    cancel_succeed: "Yêu cầu mượn sách đã được hủy."
+    cancel_error: "Yêu cầu mượn sách không được hủy."
   helper:
     session_flash_danger: "Email/mật khẩu không hợp lệ."

@@ -20,4 +20,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   }
+
+  document.querySelectorAll(".delete-request").forEach(function(element) {
+  element.addEventListener("click", function(event) {
+    event.preventDefault();
+    if (confirm("Bạn có chắc chắn muốn hủy yêu cầu này?")) {
+      fetch(this.href, {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content")
+        }
+      }).then(response => {
+        if (response.ok) {
+          window.location.reload();
+        } else {
+          response.json().then(data => {
+            console.error("Error:", data.errors || data.message);
+            alert("Có lỗi xảy ra. Vui lòng thử lại.sss");
+          });
+        }
+      }).catch(error => {
+        console.error("Fetch error:", error);
+        alert("Có lỗi xảy ra. Vui lòng thử lại.dsds");
+      });
+    }
+  });
+  });
 });

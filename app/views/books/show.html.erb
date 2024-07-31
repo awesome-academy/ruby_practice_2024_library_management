@@ -17,10 +17,16 @@
         <p>Năm Xuất Bản: <%= @book.publication_year %></p>
         <p class="price"><%= @book.price %>$</p>
         <div class="btn-borrow">
-          <%= link_to 'Mượn Sách', root_path, class: 'borrow-button' %>
+          <% if logged_in? %>
+            <%= link_to 'Mượn Sách', new_book_borrow_request_path(@book), class: 'btn btn-primary' %>
+          <% else %>
+            <%= link_to 'Mượn Sách', login_path(return_to: request.original_url), class: 'btn btn-primary' %>
+          <% end %>
         </div>
         <h1>Mô tả sản phẩm</h1>
-        <div class="book-description" id="book-description"><%= simple_format(@book.description) %></div>
+        <div class="book-description" id="book-description">
+          <%= simple_format(@book.description) %>
+        </div>
         <button id="toggle-description" class="btn btn-secondary">Xem thêm</button>
       </div>
     </div>

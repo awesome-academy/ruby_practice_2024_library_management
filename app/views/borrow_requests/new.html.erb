@@ -1,0 +1,50 @@
+<div class="borrow_book">
+  <div class="container mt-4">
+    <h1>Yêu cầu Mượn Sách</h1>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    <div class="infor infor_user">
+      <% if logged_in? %>
+      <p>Người mượn: <strong><%= current_user.name %></strong></p>
+      <p>Email: <strong><%= current_user.email %></strong></p>
+    <% end %>
+    </div>
+    <div class="infor">
+      <div class="infor_book">
+        <p>Tên sách: <strong><%= @borrow_request.book.name %></strong></p>
+        <p>Tác giả: <strong><%= @borrow_request.book.author.name %></strong></p>
+      </div>
+      <div class="infor_book">
+        <p>Nhà xuất bản: <strong><%= @borrow_request.book.publisher.name %></strong></p>
+        <p>Năm xuất bản: <strong><%= @borrow_request.book.publication_year %></strong></p>
+      </div>
+    </div>
+
+    <p class="price">Giá: <%= @borrow_request.book.price %>$</p>
+
+    <%= form_with(model: [@book, @borrow_request], local: true) do |f| %>
+      <div class="mb-3">
+        <%= f.label :start_date, "Ngày bắt đầu mượn" %>
+        <%= f.date_field :start_date, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :end_date, "Ngày kết thúc mượn" %>
+        <%= f.date_field :end_date, class: "form-control" %>
+      </div>
+      <p>Lưu ý: Chính sách mượn sách</p>
+      <ul class="borrow-notes">
+        <li>Thông tin đổi trả: Bạn có thể đổi sách trong vòng 7 ngày.</li>
+        <li>Ngày quá hẹn: Nếu không trả sách đúng hạn, sẽ bị phạt 1$/ngày.</li>
+      </ul>
+      <div class="action">
+        <%= link_to 'Quay lại', book_path(@book), class: 'btn btn-primary' %>
+        <%= f.submit 'Xác nhận', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+

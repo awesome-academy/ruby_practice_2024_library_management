@@ -42,5 +42,7 @@ en:
     application_reqire: "You need to log in to perform this action."
     comment_add: "Comment has been added!"
     comment_add_fail: "Unable to add comment."
+    request_borrow: "Yêu cầu mượn sách đã được gửi thành công!"
+    request_error: "Vui lòng điền đầy đủ thông tin"
   helper:
     session_flash_danger: "Invalid email/password combination"

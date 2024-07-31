@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "borrow_requests/new"
+  get "borrow_requests/create"
   get "comments/create"
   get "authors/index"
   get "authors/show"
@@ -25,5 +27,6 @@ Rails.application.routes.draw do
   resources :authors, only: %i(index show)
   resources :books do
     resources :comments, only: %i(create)
+    resources :borrow_requests, only: %i(new create)
   end
 end

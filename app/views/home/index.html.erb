@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Library Management System</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-
-<body>
-  <h1>Welcome to the Library Management System <%= @user %></h1>
-  <p>You have successfully signed up!</p>
-</body>
-</html>
+<% @categories.each do |category| %>
+  <div class="category-container mb-4 p-3">
+    <h2><%= category.name %></h2>
+    <div class="row">
+      <% category.books.each do |book| %>
+        <div class="col-md-3">
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+             <!-- <p class="card-text"><%= book.description %></p>-->
+              <% if book.image_url.present? %>
+                <%= image_tag book.image_url, class: 'card-img-top img-fluid mb-3', alt: book.name %>
+              <% end %>
+              <h5 class="card-title"><strong><%= book.name %></strong></h5>
+               <!-- <p class="card-text"><strong>Author:</strong> <%= book.author.name %></p> -->
+              <p class="card-text"><strong>Price:</strong> <%= book.price %>$</p>
+              <%= link_to 'View Details', book_path(book), class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

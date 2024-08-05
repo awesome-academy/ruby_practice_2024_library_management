@@ -1,0 +1,17 @@
+<h1>Authors</h1>
+
+<%= form_with url: authors_path, method: :get, local: true do %>
+  <%= label_tag :name, "Search by name:" %>
+  <%= text_field_tag :name, params[:name] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<ul>
+  <% if @authors.present? %>
+    <% @authors.each do |author| %>
+      <li><%= link_to author.name, author_path(author) %></li>
+    <% end %>
+  <% else %>
+    <li>No authors found</li>
+  <% end %>
+</ul>

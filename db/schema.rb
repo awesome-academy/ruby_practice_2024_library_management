@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_31_084350) do
 
   create_table "books", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "description", limit: 5000
     t.decimal "price", precision: 10, scale: 2
     t.bigint "author_id", null: false
     t.bigint "publisher_id", null: false

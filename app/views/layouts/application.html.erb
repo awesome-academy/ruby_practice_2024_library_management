@@ -45,6 +45,11 @@
   </nav>
 
   <div class="container mt-4">
+    <% if flash[:alert] %>
+    <div class="alert alert-warning">
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
     <%= yield %>
   </div>
 </body>

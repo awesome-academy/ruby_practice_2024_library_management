@@ -1,2 +1,11 @@
 vi:
   hello: "Xin chào"
+  controller:
+    register_notice: "Đăng ký thành công!"
+    login_succed: "Đăng nhập thành công!"
+    login_fail: "Email hoặc mật khẩu không chính xác."
+    logout_succed: "Đăng xuất thành công!"
+    require_login: "Hãy đăng nhập."
+    application_reqire: "Bạn cần đăng nhập để thực hiện hành động này."
+    comment_add: "Bình luận đã được thêm!"
+    comment_add_fail: "Không thể thêm bình luận."

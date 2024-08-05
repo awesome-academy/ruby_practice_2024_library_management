@@ -29,12 +29,36 @@
   <div class="comments-section mt-4">
     <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
     <% unless logged_in? %>
-      <p>Bạn cần đăng nhập để có thể bình luận. <%= link_to 'Đăng nhập tại đây.', login_path %></p>
+      <p>Bạn cần đăng nhập để có thể bình luận.
+        <%= link_to 'Đăng nhập tại đây.', login_path(return_to: request.original_url) %>
+      </p>
+    <% else %>
+      <%= form_with(model: [ @book, @book.comments.build ],
+          url: book_comments_path(@book), local: true) do |f| %>
+        <div class="field">
+          <%= f.label :content, 'Nội dung bình luận' %>
+          <%= f.text_area :content, rows: 3, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Gửi bình luận', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     <% end %>
+
     <% if @book.comments.any? %>
       <% @book.comments.each do |comment| %>
         <div class="comment">
-          <p><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
+          <% if comment.user.present? %>
+            <p>
+              <strong><%= comment.user.name %>:</strong>
+              <%= comment.content %>
+            </p>
+          <% else %>
+            <p>
+              <strong>Người dùng không xác định:</strong>
+              <%= comment.content %>
+            </p>
+          <% end %>
         </div>
       <% end %>
     <% else %>

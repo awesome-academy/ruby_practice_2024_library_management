@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_02_081651) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_07_092451) do
   create_table "authors", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.string "bio", limit: 5500
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_02_081651) do
   create_table "borrow_requests", charset: "utf8mb3", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.string "status"
+    t.integer "status"
     t.string "rejection_reason"
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false

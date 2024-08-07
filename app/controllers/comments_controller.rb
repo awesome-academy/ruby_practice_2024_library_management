@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @book, alert: t("controller.comment_add")
+      redirect_to @book, notice: t("controller.comment_add")
     else
-      redirect_to @book, alert: t("controller.comment_add_fail")
+      redirect_to @book, notice: t("controller.comment_add_fail")
     end
   end
 

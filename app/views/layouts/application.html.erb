@@ -45,10 +45,10 @@
   </nav>
 
   <div class="container mt-4">
-    <% if flash[:alert] %>
-    <div class="alert alert-warning">
-      <%= flash[:alert] %>
-    </div>
+    <% if flash[:notice] %>
+      <div class="alert alert-success flash-message" id="flash_notice">
+        <%= flash[:notice] %>
+      </div>
     <% end %>
     <%= yield %>
   </div>

@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_31_084350) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_02_081651) do
   create_table "authors", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
-    t.string "bio"
+    t.string "bio", limit: 5500
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_picture_url"
+    t.string "birth_year"
   end
 
   create_table "books", charset: "utf8mb3", force: :cascade do |t|

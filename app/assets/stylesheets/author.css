@@ -1,0 +1,50 @@
+.author {
+.col-md-3{
+  margin: 0;
+  .birth {
+    text-align: center;
+    background: #fff;
+    margin: 0;
+    font-weight: 550;
+  }
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+.card-title{
+  font-size: 20px;
+  font-weight: 400;
+}
+.text_author {
+  .card-text {
+    color: #333 ;
+  }
+  .p {
+    margin: 20px !important;
+  }
+
+}
+.card-body-img {
+  background-color: #f9f9f9;
+
+}
+.card-body.text {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+.list-group-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+}

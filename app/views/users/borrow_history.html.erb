@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h1 style="text-align: center;">Lịch sử mượn sách</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Tên sách</th>
+        <th>Giá</th>
+        <th>Ngày bắt đầu mượn</th>
+        <th>Ngày trả</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @borrow_requests.each do |request| %>
+        <tr>
+          <td><%= request.book.name %></td>
+          <td><%= request.book.price %>$</td>
+          <td><%= request.start_date.strftime('%d-%m-%Y') %></td>
+          <td><%= request.end_date.strftime('%d-%m-%Y') %></td>
+          <td>
+            <% case request.status %>
+            <% when 'pending' %>
+              Đang chờ
+            <% when 'borrowing' %>
+              Đang mượn
+            <% when 'payed' %>
+              Đã trả
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

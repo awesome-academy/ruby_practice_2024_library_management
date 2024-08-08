@@ -1,9 +1,9 @@
-<h1>Thể loại: <%= @category.name %></h1>
+<h1>Categories: <%= @category.name %></h1>
 
 <ul>
   <% if @books.present? %>
     <% @books.each do |book| %>
-      <li><%= link_to book.name, book_path(book) %> by <%= book.author.name %></li>
+      <li>- <%= link_to book.name, book_path(book) %> by <%= book.author.name %></li>
     <% end %>
   <% else %>
     <li>No books found in this category</li>

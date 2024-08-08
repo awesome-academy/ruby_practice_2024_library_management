@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Thông tin người dùng</h1>
+  <ul>
+    <li class="nav-item"; style="list-style-type: none;">
+      <%= link_to 'Lịch sử mượn sách', borrow_history_user_path(current_user),  class: 'btn btn-primary' %>
+    </li>
+  </ul>

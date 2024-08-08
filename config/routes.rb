@@ -29,4 +29,9 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create)
     resources :borrow_requests, only: %i(new create)
   end
+  resources :users do
+    member do
+      get "borrow_history"
+    end
+  end
 end

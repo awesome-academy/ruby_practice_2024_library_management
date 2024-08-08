@@ -44,5 +44,7 @@ en:
     comment_add_fail: "Unable to add comment."
     request_borrow: "The book borrowing request has been successfully sent!"
     request_error: "Please fill in all required fields."
+    cancel_succeed: "The book borrowing request has been successfully canceled."
+    cancel_error: "The book borrowing request could not be canceled."
   helper:
     session_flash_danger: "Invalid email/password combination"

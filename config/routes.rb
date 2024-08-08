@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
   delete "logout", to: "sessions#destroy"
-
   root "home#index"
 
   resources :users, only: %i(show)
@@ -34,4 +33,5 @@ Rails.application.routes.draw do
       get "borrow_history"
     end
   end
+  resources :borrow_requests, only: %i(destroy)
 end

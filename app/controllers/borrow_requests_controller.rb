@@ -1,5 +1,6 @@
 class BorrowRequestsController < ApplicationController
   before_action :set_book, only: %i(new create)
+  before_action :set_borrow_request, only: %i(destroy)
 
   def new
     @borrow_request = @book.borrow_requests.new
@@ -17,6 +18,18 @@ class BorrowRequestsController < ApplicationController
     end
   end
 
+  def destroy
+    if @borrow_request.destroy
+      render json: {message: "Yêu cầu mượn sách đã được hủy."},
+             status: :no_content
+      flash[:notice] = t("controller.cancel_succeed")
+    else
+      render json: {errors: @borrow_request.errors.full_messages},
+             status: :unprocessable_entity
+      flash.now[:alert] = t("controller.cancel_error")
+    end
+  end
+
   private
 
   def set_book
@@ -25,5 +38,9 @@ class BorrowRequestsController < ApplicationController
 
   def borrow_request_params
     params.require(:borrow_request).permit(:start_date, :end_date)
+  end
+
+  def set_borrow_request
+    @borrow_request = BorrowRequest.find_by(id: params[:id])
   end
 end

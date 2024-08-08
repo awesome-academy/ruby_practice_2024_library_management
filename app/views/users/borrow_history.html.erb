@@ -8,23 +8,30 @@
         <th>Ngày bắt đầu mượn</th>
         <th>Ngày trả</th>
         <th>Trạng thái</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @borrow_requests.each do |request| %>
         <tr>
-          <td><%= request.book.name %></td>
+          <td><%= link_to request.book.name, book_path(request.book) %></td>
           <td><%= request.book.price %>$</td>
           <td><%= request.start_date.strftime('%d-%m-%Y') %></td>
           <td><%= request.end_date.strftime('%d-%m-%Y') %></td>
           <td>
             <% case request.status %>
             <% when 'pending' %>
-              Đang chờ
+              Đang chờ xác nhận
             <% when 'borrowing' %>
               Đang mượn
             <% when 'payed' %>
               Đã trả
+            <% end %>
+          </td>
+          <td>
+            <% if request.status? %>
+
+              <%= link_to 'Hủy yêu cầu', borrow_request_path(request), class: 'btn btn-danger delete-request'%>
             <% end %>
           </td>
         </tr>
